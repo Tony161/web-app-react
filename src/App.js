@@ -5,12 +5,12 @@ import {useTelegram} from "./hooks/useTelegram";
 
 function App() {
   useEffect(()=> tg.ready(), [])
-  const { tg, user, onClose, onToggleButton, requestLocation}=useTelegram()
+  const { tg, user, onClose, onToggleButton, requestLocation, answer}=useTelegram()
 
 
   return (
     <div className="App">
-      {/*{JSON.stringify(tg)}*/}
+      {JSON.stringify(answer)}
       <button onClick={requestLocation}>Location</button>
       <button onClick={onToggleButton}>toggle</button>
      <MapComponent />

@@ -11,13 +11,17 @@ export function useTelegram(){
     }
   }
 
+  let answer = null
+
   const requestLocation =() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         document.querySelector('#locationData').innerHTML = '(' + position.coords.latitude + ', ' + position.coords.longitude + ')';
+        answer = {lat: position.coords.latitude , long: position.coords.longitude}
       });
     } else {
       document.querySelector('#locationData').innerHTML = '(Geolocation is not supported in this browser)';
+      answer = '(Geolocation is not supported in this browser)';
     }
 
     return false;
@@ -28,6 +32,7 @@ export function useTelegram(){
     user: tg.initDataUnsafe?.user,
     onClose,
     onToggleButton,
-    requestLocation
+    requestLocation,
+    answer
   }
 }
