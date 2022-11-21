@@ -16,9 +16,8 @@ import './Map.css';
 // указываем путь к файлам marker
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
-function MapComponent(props) {
-  const center = [51.505, -0.09]
-
+function MapComponent({answer}) {
+  const center = [answer.lat || 51.505, -0.09]
   const polyline = [
     [51.505, -0.09],
     [51.51, -0.1],

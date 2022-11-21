@@ -13,7 +13,7 @@ function App() {
       {JSON.stringify(answer)}
       <button onClick={requestLocation}>Location</button>
       <button onClick={onToggleButton}>toggle</button>
-     <MapComponent />
+     <MapComponent answer={answer} />
     </div>
   );
 }
