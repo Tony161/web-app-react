@@ -7,7 +7,7 @@ const tg= window.Telegram.WebApp
 function App() {
   useEffect(()=> tg.ready(), [])
 
-  console.log('@@@@@ fdsaf',)
+  console.log('@@@@@ tg',tg)
   return (
     <div className="App">
      <MapComponent />
