@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import L from 'leaflet';
 import {
   MapContainer,
@@ -17,7 +17,9 @@ import './Map.css';
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
 function MapComponent({answer}) {
-  const center = [answer.lat || 51.505, -0.09]
+  const [coor, setCoor] = useState(51.505)
+  useEffect(()=> setCoor(answer.lat), [answer] )
+  const center = [coor, -0.09]
   const polyline = [
     [51.505, -0.09],
     [51.51, -0.1],
